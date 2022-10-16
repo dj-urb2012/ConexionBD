@@ -29,7 +29,7 @@ public class TablaAutor {
             conn = conexion.obtenerConexion();
             mostrarRegistros = conn.prepareStatement("Select * from Autor");
             insertarRegistro = conn.prepareStatement("Insert Into Autor(nombrePila,"
-                    + " apellidoPaterno) Values(?, ?))");
+                    + " apellidoPaterno) Values(?, ?)");
             modificarRegistro = conn.prepareStatement("Update Autor set nombrePila = ?,"
                     + " apellidoPaterno = ? where idAutor = ?");
             eliminarRegistro = conn.prepareStatement("Delete From Autor where idAutor = ?");
@@ -74,6 +74,7 @@ public class TablaAutor {
                     apellidoPaterno,
                     4 // Estado nuevo registro sin guardar en la BD
             ));
+            return 1;
         } catch(Exception ex) {
             System.out.println(ex.getMessage());
         }
